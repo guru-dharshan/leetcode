@@ -12,20 +12,41 @@ class Solution:
     # Return a list containing the inorder traversal of the given tree
     def postOrder(self,node):
         # code here
-        stack=[]
-        ans=[]
-        stack.append(node)
-        while(len(stack)!=0):
+        # stack=[]
+        # ans=[]
+        # stack.append(node)
+        # while(len(stack)!=0):
             
-            t=stack.pop()
-            ans.append(t.data)
-            if t.left:
-                stack.append(t.left)
-            if t.right:
-                stack.append(t.right)
+        #     t=stack.pop()
+        #     ans.append(t.data)
+        #     if t.left:
+        #         stack.append(t.left)
+        #     if t.right:
+        #         stack.append(t.right)
             
         
-        return ans[::-1]
+        # return ans[::-1]
+        q = [node]
+        ans = []
+        
+        while(q):
+           val = q.pop(-1)
+           if val.left:
+               left = val.left
+               val.left = None
+               q.append(val)
+               q.append(left)
+               continue
+           if val.right:
+               right = val.right
+               val.right = None
+               q.append(val)
+               q.append(right)
+               continue
+           ans.append(val.data)
+           
+           
+        return ans
 
 #{ 
 #  Driver Code Starts
