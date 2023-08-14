@@ -3,16 +3,14 @@
 class Solution:
 	def pushZerosToEnd(self,arr, n):
     	# code here
-    	ans = []
-    	zeroCount = 0
-    	for i in arr:
-    	    if i == 0:
-    	        zeroCount = zeroCount + 1
-    	    else:
-    	        ans.append(i)
-        for x in range(zeroCount):
-            ans.append(0)
-        arr[:]=ans
+    	z = 0
+    	for i in range(0,len(arr)):
+    	    if arr[i] != 0:
+    	        arr[i] , arr[z] = arr[z] , arr[i]
+    	        z=z+1
+    	    
+    	
+    	            
     	        
 
 
